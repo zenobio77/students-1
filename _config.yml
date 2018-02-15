@@ -1,0 +1,7 @@
+baseurl: ""
+class_name: "Tecnologias de Programação"
+class_year: "2018"
+repository_name: "students"
+
+exclude:
+  - vendor
