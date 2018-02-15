@@ -1,0 +1,35 @@
+---
+layout: default
+class: "2018"
+---
+<h2 style="text-align: center;">Turma de <b>{{page.class}}</b></h2>
+
+<!-- based on http://git.io/vvroy -->
+<div>
+{% assign students = site.data[page.class] sort: 'name' %}
+{% for user_hash in students %}
+    {% assign username = user_hash[0] %}
+    {% assign user = user_hash[1] %}
+
+    <div class="js-student" data-username="{{ username }}">
+    <a href="https://github.com/{{ username }}">
+        <!-- TODO add loading image -->
+        <img class="js-avatar" src=""/>
+        <div class="info">
+        <div>
+            <span class="github-username">@{{ username }}</span>
+            {% assign emoji = user.emoji | replace:':','' | replace:'+','--' %}
+            <i class="em em-{{ emoji }}"></i>
+        </div>
+        <div>
+            <span class="js-name"></span>
+        </div>
+        <p>
+            {{ user.introduction }}
+        </p>
+        </div>
+    </a>
+    </div>
+{% endfor %}
+</div>
+      
